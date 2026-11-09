@@ -1,0 +1,87 @@
+.arrival {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(245px, 40%);
+  align-items: center;
+  min-height: max(530px, calc(100dvh - 108px));
+  width: 100%;
+  margin-inline: auto;
+  background: linear-gradient(0deg, #141117 0, transparent 22%), linear-gradient(90deg, #120d0be8 0%, #130e0aa6 42%, #120d091a 80%), url('/scenes/tavern-bar.webp') center / cover, #231b14;
+  overflow: hidden;
+}
+
+.arrivalContent { z-index: 1; max-width: 720px; padding: 50px clamp(24px, 7vw, 120px); }
+.eyebrow, .deskTop > span { color: #edc88e; font-size: .78rem; letter-spacing: .14em; }
+.arrival h1 { font: 700 clamp(2.35rem, 4.6vw, 4.8rem)/1.16 var(--font-serif-sc), serif; color: #fff0d1; margin: 10px 0 16px; text-wrap: balance; }
+.hostNames { color: #eac18a; font-size: .85rem; margin-bottom: 12px; }
+.hostNames span { margin-inline: 5px; color: #bb9568; }
+.arrival p { color: #f1e0c3; font-size: clamp(.95rem, 1.5vw, 1.13rem); line-height: 1.85; max-width: 28em; margin-bottom: 23px; }
+.hosts, .hostPortrait { position: relative; align-self: stretch; min-width: 0; }
+.arrivalPortrait, .tomPortrait { position: absolute; }
+.arrivalPortrait { inset: 14px 3% 0 33%; }
+.tomPortrait { inset: auto 56% 12% 0; height: 52%; }
+.arrivalPortrait img, .tomPortrait img, .hostPortrait img { object-fit: contain; object-position: center bottom; filter: drop-shadow(0 10px 25px #160c09a0); }
+.arrivalPortrait img, .tomPortrait img { mask-image: linear-gradient(#000 79%, transparent 100%); animation: welcome-in 520ms ease-out both; }
+.arrivalLinks { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 20px; color: #f0d2a4; font-size: .9rem; }
+.arrivalLinks > :is(a, button) { text-decoration: underline; text-underline-offset: 4px; }
+.time { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; color: #f0d2a4; font-size: .8rem; }
+.time select, .barInput input { color: #f1e0c3; border: 1px solid #a27c55; border-radius: 4px; background: #211810; padding: 5px 8px; }
+
+.desk {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(1010px, calc(100% - 24px));
+  max-width: none;
+  max-height: 94dvh;
+  overflow: auto;
+  padding: 0;
+  color: #f3e2c4;
+  border: 1px solid #ad8050;
+  background: #20170f;
+  box-shadow: 0 20px 70px #080503bb;
+  animation: welcome-in 220ms ease-out both;
+}
+.desk::backdrop { background: #100b08c9; }
+.deskFrame { background: linear-gradient(90deg, #20160f33 25%, #211810f2 63%), url('/scenes/tavern-board.webp') center / cover; }
+.barFrame { background-image: linear-gradient(90deg, #20160f33 25%, #211810f2 63%), url('/scenes/tavern-bar.webp'); }
+.barHost { min-height: 245px; }
+.barInput { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; }
+.barInput input { flex: 1 1 165px; min-width: 0; font: inherit; }
+.deskTop { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px clamp(14px, 3vw, 28px); background: #20170fe8; border-bottom: 1px solid #ab80527a; }
+.deskGrid { display: grid; grid-template-columns: minmax(185px, 38%) minmax(0, 1fr); align-items: stretch; min-height: 440px; }
+.hostPortrait img { padding: 24px 0 0; }
+.letter { min-width: 0; align-self: center; background: #201811eb; padding: clamp(18px, 3vw, 34px); }
+.letter h2 { font: 700 clamp(1.65rem, 4vw, 2.65rem)/1.25 var(--font-serif-sc), serif; color: #ffedcb; overflow-wrap: anywhere; margin: 6px 0 12px; }
+.letter h2:focus { outline: none; }
+.window { aspect-ratio: 2.5; min-height: 92px; max-height: 220px; border-block: 1px solid #a98863; background: linear-gradient(0deg, #1c130b77, transparent 55%), var(--commission-image) center / cover, url('/scenes/tavern-board.webp') center / cover, #422d20; animation: welcome-in 260ms ease-out both; }
+.brief { margin: 13px 0; color: #f4e4cd; line-height: 1.65; font-size: .94rem; overflow-wrap: anywhere; }
+.notice { padding: 8px 12px; margin-block: 12px; border-inline-start: 2px solid #dcac70; color: #f5d5a5; background: #332216; font-size: .86rem; }
+.deskActions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.back, .voice { color: #f0d0a1; display: inline-block; font-size: .87rem; text-underline-offset: 4px; text-decoration: underline; padding-block: 6px; }
+.voice { display: block; margin-top: 8px; }
+.commissionList { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px 12px; }
+.commissionList button { display: flex; justify-content: space-between; gap: 6px; text-align: left; color: #ffebc6; padding: 11px 9px; border-bottom: 1px solid #b5905d78; min-height: 44px; overflow-wrap: anywhere; }
+.commissionList button:hover { background: #b48a4a24; }
+.commissionList span { color: #d8b483; }
+.workshop { margin-top: 14px; color: #e4bf8f; }
+.arrival button:focus-visible, .arrival a:focus-visible, .desk button:focus-visible, .desk a:focus-visible { outline: 2px solid #f6c47f; outline-offset: 3px; }
+
+@keyframes welcome-in { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 700px) {
+  .arrival { min-height: 0; grid-template-columns: minmax(0, 1fr); background-position: 65% center; }
+  .arrivalContent { width: 100%; padding: 30px 17px; background: linear-gradient(0deg, #120e0bf5 5%, #140d09dc 68%, transparent); }
+  .hosts { grid-row: 1; height: clamp(225px, 56vw, 350px); }
+  .arrivalPortrait { inset: 10px 6% 0 39%; }
+  .tomPortrait { inset: auto 57% 0 12%; height: 64%; }
+  .arrival h1 { font-size: clamp(2.15rem, 9vw, 3.45rem); }
+  .deskGrid { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .hostPortrait { position: absolute; width: 70px; height: 72px; right: 15px; top: 63px; pointer-events: none; }
+  .hostPortrait img { padding: 0; object-fit: cover; object-position: top; }
+  .letter h2 { padding-right: 72px; min-height: 54px; }
+  .barHost { display: none; }
+  .barFrame .letter h2 { min-height: 0; padding-right: 0; }
+  .window { aspect-ratio: 2.25; }
+}
+@media (prefers-reduced-motion: reduce) { .arrivalPortrait img, .tomPortrait img, .desk, .window { animation: none; } }

@@ -1,0 +1,26 @@
+.frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  container-type: size;
+}
+
+.base { position: absolute; inset: 0; display: grid; place-items: center; }
+.frame:not([data-pose='idle']) .base { opacity: 0; }
+
+.cell {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: min(100cqw, calc(100cqh * var(--pose-ratio)));
+  aspect-ratio: var(--pose-ratio);
+  translate: -50% 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.cell[data-visible='true'] { visibility: visible; }
+.cell > img { position: absolute; left: 0; bottom: 0; width: 100%; max-width: none; height: 100%; }
+.cell[data-cell] > img { width: 200%; }
+.cell[data-cell='1'] > img { left: auto; right: 0; }
